@@ -1,0 +1,137 @@
+body {
+    margin: 0 auto;
+    background-image: url(../images/body_background.jpg)
+}
+
+@font-face {
+    font-family: "Gamja Flower";
+    src: url(../Match_Match_Game/fonts/GamjaFlower-Regular.ttf);
+}
+
+@font-face {
+    font-family: "Lato";
+    src: url(../Match_Match_Game/fonts/lato);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    width: 750px;
+    margin: 0 auto;
+}
+
+.game_greeting_and_player_profile {
+    background-color: rgba(174, 174, 174, 0.5);
+    opacity: 2;
+    margin: 50px auto 0 auto;
+    width: 1350px;
+    padding: 40px 0 15px 0;
+}
+
+.game_greeting {
+    text-align: center;
+}
+
+.game_greeting_heading {
+    font-family: Gamja Flower;
+    color: #fff;
+    font-size: 60px;
+}
+
+.game_greeting_paragraph {
+    font-family: Gamja Flower;
+    font-size: 40px;
+    color: #fff;
+    margin-top: 40px;
+}
+
+.greeting_and_player_profile_form {
+    text-align: center;
+}
+
+.player_profile {
+    margin: 50px auto;
+    width: 250px;
+}
+
+.player_profile_input_box {
+    margin-bottom: 30px;
+}
+
+.player_profile_label {
+    color: #aee0ff;
+    font-family: Lato;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.player_profile_input {
+    outline: none;
+    border: 3px solid #ebebeb;
+    border-radius: 8px;
+    padding: 8px 10px;
+    width: 210px;
+    margin-top: 5px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #005f9a;
+    background-color: #f0f0f0;
+}
+
+.player_profile_input:focus {
+    border: 3px solid #91d5ff;
+    transition: 0.6s;
+}
+
+.player_profile_button {
+    color: #fff;
+    background-color: #88d2ff;
+    font-size: 20px;
+    font-family: Lato;
+    font-weight: bold;
+    padding: 8px 20px;
+    margin-left: 50px;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+}
+
+.player_greeting_and_game_rules {
+    /* display: none; */
+    background-color: rgba(174, 174, 174, 0.5);
+    opacity: 2;
+    margin: 50px auto 0 auto;
+    width: 1350px;
+    padding: 40px 0 15px 0;
+}
+
+.player_greeting {
+    text-align: center;
+}
+
+.player_full_name_greeting {
+    font-family: Gamja Flower;
+    color: #fff;
+    font-size: 60px;
+}
+
+.about_game_paragraph {
+    font-family: Gamja Flower;
+    font-size: 40px;
+    color: #fff;
+    margin-top: 40px;
+}
+
+.game_rules {
+    text-align: center;
+}
+
+.game_rules_paragraph {
+    font-family: Lato;
+    font-size: 25px;
+    font-weight: bold;
+    color: #aee0ff;
+}

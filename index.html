@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Match-Match Game</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="../Match_Match_Game/css/style.css">
+</head>
+
+<body>
+    <div class="content_wrapper">
+        <div class="game_greeting_and_player_profile">
+            <div class="wrapper">
+                <div class="game_greeting">
+                    <h2 class="game_greeting_heading">Welcome To The "Memory Game"</h2>
+                    <p class="game_greeting_paragraph">Please enter your information</p>
+                </div>
+                <div class="player_profile">
+                    <form class="player_profile_form">
+                        <div class="player_profile_input_box">
+                            <label class="player_profile_label">First Name</label><br />
+                            <input id="greeting_first_name" class="player_profile_input" name="first" type="text" required>
+                        </div>
+                        <div class="player_profile_input_box">
+                            <label class="player_profile_label">Last Name</label><br />
+                            <input id="greeting_last_name" class="player_profile_input" name="last" type="text" required>
+                        </div>
+                        <div class="player_profile_input_box">
+                            <label class="player_profile_label">Email</label><br />
+                            <input class="player_profile_input" name="last" type="text" required>
+                        </div>
+                        <button class="player_profile_button">Register</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="player_greeting_and_game_rules">
+            <div class="wrapper">
+                <div class="player_greeting">
+                    <h2 class="player_full_name_greeting"></h2>
+                    <p class="about_game_paragraph">"Memory" is a game for brain training<br /> where the goal is to find the same Cards</p>
+                </div>
+                <div class="game_rules">
+                    <p class="game_rules_paragraph">Game Rules:</p>
+                    <ol class="game_rules_ordered_list">
+                        <li class="game_rules_ordered_list_li">
+                            <p class "game_rules_ordered_list_paragraph">Flip two cards and try to find the same ones</p>
+                        </li>
+                        <li class="game_rules_ordered_list_li">
+                            <p class "game_rules_ordered_list_paragraph">If the cards are the same look for the next pair</p>
+                        </li>
+                        <li class="game_rules_ordered_list_li">
+                            <p class "game_rules_ordered_list_paragraph">If the cards are different they will roll back</p>
+                        </li>
+                        <li class="game_rules_ordered_list_li">
+                            <p class "game_rules_ordered_list_paragraph">The player who finds all pairs wins</p>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../Match_Match_Game/js/index.js"></script>
+</body>
+
+</html>
