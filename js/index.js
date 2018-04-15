@@ -1,14 +1,14 @@
-let greetingFirstNameInput = document.getElementById('greetingFirstName');
+let greetingFirstNameInput = document.querySelector('#greetingFirstName');
 
-let greetingLastNameInput = document.getElementById('greetingLastName');
+let greetingLastNameInput = document.querySelector('#greetingLastName');
 
-let fullNameGreeting = document.querySelector('.player_full_name_greeting');
+let fullNameGreeting = document.querySelector('.player-full-name-greeting');
 
-let playerProfileButton = document.querySelector('.player_profile_register_button');
+let playerProfileButton = document.querySelector('.player-profile-register-button');
 
-let gameGreeting = document.querySelector('.game_greeting_and_player_profile');
+let gameGreeting = document.querySelector('.game-greeting-and-player-profile-page');
 
-let gameRules = document.querySelector('.player_greeting_and_game_rules');
+let gameRules = document.querySelector('.player-greeting-and-game-rules-page');
 
 function getFullName() {
     gameGreeting.style.display = 'none';
@@ -21,13 +21,13 @@ playerProfileButton.addEventListener('click', getFullName)
 
 
 
-let shirtOptionsButton = document.querySelector('#shirt_cards_button');
+let shirtOptionsButton = document.querySelector('#shirtCardsButton');
 
-let shirtButtonDropdownContent = document.querySelector('.shirt_cards_button_content')
+let shirtButtonDropdownContent = document.querySelector('#shirtCardsButtonContent')
 
-let shirtCardsImg = document.querySelectorAll('.shirt_cards_img');
+let shirtCardsImg = document.querySelectorAll('.shirt-cards-img');
 
-// let yodaImg = document.querySelector('.yoda_img');
+// let yodaImg = document.querySelector('.yoda-img');
 
 shirtOptionsButton.addEventListener('click', () => {
     // yodaImg.style.display = 'none';
@@ -40,3 +40,20 @@ function shirtButtonsOptions() {
 }
 
 shirtCardsImg.forEach(img => img.addEventListener('click', shirtButtonsOptions));
+
+
+let gameLevelButton = document.querySelector('#gameLevelButton');
+
+let levelButtonContent = document.querySelector('#levelButtonContent');
+
+gameLevelButton.addEventListener('click', () => {
+    levelButtonContent.style.display = 'block';
+});
+
+let newGameButton = document.querySelector('#newGameButton');
+let gamePage = document.querySelector('.game-page');
+
+newGameButton.addEventListener('click', () => {
+    gameRules.style.display = 'none';
+    gamePage.style.display = 'block';
+});

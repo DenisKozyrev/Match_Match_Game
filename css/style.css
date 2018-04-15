@@ -1,16 +1,16 @@
 body {
     margin: 0 auto;
-    background-image: url(../images/body_background.jpg)
+    background-image: url(../images/body-background.jpg)
 }
 
 @font-face {
     font-family: "Gamja Flower";
-    src: url(../Match_Match_Game/fonts/GamjaFlower-Regular.ttf);
+    src: url(../Match-Match-Game/fonts/GamjaFlower-Regular.ttf);
 }
 
 @font-face {
     font-family: "Lato";
-    src: url(../Match_Match_Game/fonts/lato);
+    src: url(../Match-Match-Game/fonts/lato);
 }
 
 * {
@@ -23,8 +23,8 @@ body {
     margin: 0 auto;
 }
 
-.game_greeting_and_player_profile {
-    display: none;
+.game-greeting-and-player-profile-page {
+    display: block;
     background-color: rgba(174, 174, 174, 0.5);
     opacity: 2;
     margin: 50px auto 0 auto;
@@ -32,44 +32,44 @@ body {
     padding: 40px 0 15px 0;
 }
 
-.game_greeting {
+.game-greeting {
     text-align: center;
 }
 
-.game_greeting_heading {
+.game-greeting-heading {
     font-family: Gamja Flower;
     color: #fff;
     font-size: 60px;
 }
 
-.game_greeting_paragraph {
+.game-greeting-paragraph {
     font-family: Gamja Flower;
     font-size: 40px;
     color: #fff;
     margin-top: 40px;
 }
 
-.greeting_and_player_profile_form {
+.greeting-and-player-profile-form {
     text-align: center;
 }
 
-.player_profile {
+.player-profile {
     margin: 50px auto;
     width: 250px;
 }
 
-.player_profile_input_box {
+.player-profile-input-box {
     margin-bottom: 30px;
 }
 
-.player_profile_label {
+.player-profile-label {
     color: #aee0ff;
     font-family: Lato;
     font-size: 20px;
     font-weight: bold;
 }
 
-.player_profile_input {
+.player-profile-input {
     outline: none;
     border: 3px solid #ebebeb;
     border-radius: 8px;
@@ -82,12 +82,12 @@ body {
     background-color: #f0f0f0;
 }
 
-.player_profile_input:focus {
+.player-profile-input:focus {
     border: 3px solid #91d5ff;
     transition: 0.6s;
 }
 
-.player_profile_register_button {
+.player-profile-register-button {
     color: #fff;
     background-color: #5ac1ff;
     font-size: 20px;
@@ -101,38 +101,34 @@ body {
     box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.3)
 }
 
-.player_profile_register_button:active {
+.player-profile-register-button:active {
     background-color: #5ac1ff;
     box-shadow: none;
     transform: translateY(4px);
 }
 
-.player_greeting_and_game_rules {
+.player-greeting-and-game-rules-page {
     display: none;
     background-color: rgba(174, 174, 174, 0.5);
     opacity: 2;
     margin: 50px auto 0;
     width: 1350px;
-    padding: 40px 0 15px 0;
+    padding: 40px 0 35px 0;
 }
 
-.player_greeting_and_buttons {
-    text-align: center;
-}
-
-.player_full_name_greeting {
-    font-family: Gamja Flower;
-    color: #fff;
-    font-size: 60px;
-}
-
-.game_level_and_shirt_cards_buttons {
+.player-greeting-and-buttons {
     display: flex;
     justify-content: space-between;
-    margin-top: -20px;
+    margin: 0 auto;
+    width: 1100px;
 }
 
-.game_options_button {
+.game-button-box {
+    position: relative;
+    display: inline-block;
+}
+
+.game-level-button {
     text-align: center;
     color: #fff;
     background-color: #585858;
@@ -146,43 +142,48 @@ body {
     box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.4);
 }
 
-.game_options_button:active {
+.game-level-button:active {
     box-shadow: none;
     transform: translateY(4px);
 }
 
-.game_buttons_dropdown_content {
+.game-level-button-dropdown-content {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 160px;
+    min-width: 179px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
 }
 
-.shirt_cards_img {
-    width: 130px;
-    height: 130px;
-    border: 2px solid #616161;
-    border-radius: 50%;
+.game-level-button-dropdown-content li {
+    padding: 15px 20px;
+    background-color: #616161;
+    list-style-type: none;
+    color: #87d2ff;
+    font-family: Lato;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.game-level-button-dropdown-content li:hover {
+    background-color: #f1f1f1;
     cursor: pointer;
 }
 
-.game_buttons_dropdown_content div {
-    padding: 15px 20px;
-    background-color: #616161;
+.player-full-name-greeting {
+    font-family: Gamja Flower;
+    color: #fff;
+    font-size: 60px;
+    text-align: center;
 }
 
-.shirt_cards_img:hover {
-    background-color: #f1f1f1;
-}
-
-.about_game_paragraph {
+.about-game-paragraph {
     font-family: Gamja Flower;
     font-size: 40px;
     color: #fff;
 }
 
-.game_rules_heading {
+.game-rules-heading {
     font-family: Lato;
     font-size: 30px;
     font-weight: bold;
@@ -191,19 +192,19 @@ body {
     margin-top: 30px;
 }
 
-.game_rules_ordered_list {
-    margin-left: 360px;
+.game-rules-ordered-list {
+    margin-left: 60px;
     color: #f4f4f4;
     font-size: 30px;
     margin-top: 25px;
     font-family: Gamja Flower;
 }
 
-.game_rules_ordered_list_li {
+.game-rules-ordered-list-li {
     margin-bottom: 20px;
 }
 
-.new_game_button {
+.new-game-button {
     color: #fff;
     background-color: #5ac1ff;
     font-size: 20px;
@@ -219,33 +220,87 @@ body {
     box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.3)
 }
 
-.new_game_button:active {
+.new-game-button:active {
     background-color: #5ac1ff;
     box-shadow: none;
     transform: translateY(4px);
 }
 
+.shirt-cards-button {
+    text-align: center;
+    color: #fff;
+    background-color: #585858;
+    font-size: 20px;
+    font-family: Lato;
+    font-weight: bold;
+    padding: 8px 38px;
+    border: 0;
+    cursor: pointer;
+    outline: none;
+    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.4);
+}
+
+.shirt-cards-button:active {
+    box-shadow: none;
+    transform: translateY(4px);
+}
+
+.shirt-cards-button-dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
+}
+
+.shirt-cards-button-dropdown-content li {
+    padding: 15px 20px;
+    background-color: #616161;
+    list-style-type: none;
+}
+
+.shirt-cards-img {
+    width: 130px;
+    height: 130px;
+    border: 2px solid #616161;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.shirt-cards-img:hover {
+    background-color: #f1f1f1;
+}
+
 
 /* 
-.yoda_img {
+.yoda-img {
    display: none;
    position: absolute;
    margin-left: 73%;
    margin-top: 50px;
 }
 
-.yoda_img img {
+.yoda-img img {
    width: 130px;
    height: 130px;
 } */
 
-.game {
-    display: block;
+.game-page {
+    display: none;
     background-color: rgba(174, 174, 174, 0.5);
     opacity: 2;
     margin: 50px auto 0 auto;
     width: 1350px;
-    padding: 40px 0 15px 0;
+    padding: 15px 0;
+}
+
+.game-fild {
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 480px; */
+    /* width: 960px; */
+    width: 1285px;
+    margin: 0 auto;
 }
 
 .flip-container:active .flipper,
@@ -254,15 +309,10 @@ body {
     transform: rotateY(180deg);
 }
 
-
-/* entire container, keeps perspective */
-
 .flip-container {
     perspective: 1000px;
+    margin: 5px;
 }
-
-
-/* flip the pane when hovered */
 
 .flip-container:active .flipper,
 .flip-container.hover .flipper {
@@ -273,7 +323,7 @@ body {
 .front,
 .back {
     width: 150px;
-    height: 200px;
+    height: 199px;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -283,17 +333,11 @@ body {
     margin-left: 7px;
 }
 
-
-/* flip speed goes here */
-
 .flipper {
     transition: 1s;
     transform-style: preserve-3d;
     position: relative;
 }
-
-
-/* hide back of pane during swap */
 
 .front,
 .back {
@@ -303,20 +347,54 @@ body {
     left: 0;
 }
 
-
-/* front pane, placed above back */
-
 .front {
     z-index: 2;
-    /* for firefox 31 */
     transform: rotateY(0deg);
     background-color: #aaa;
 }
 
-
-/* back, initially hidden pane */
-
 .back {
     transform: rotateY(180deg);
     background-color: #111;
+}
+
+.game-score-page {
+    /* display: none; */
+    background-color: rgba(174, 174, 174, 0.5);
+    opacity: 2;
+    margin: 50px auto 0;
+    width: 1350px;
+    padding: 40px 0 15px 0;
+}
+
+.game-score-and-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 1100px;
+}
+
+.game-score-table {
+    border-collapse: collapse;
+}
+
+.game-score-table th {
+    color: #fff;
+    font-family: Gamja Flower;
+    font-size: 40px;
+}
+
+.game-score-table td {
+    color: #fff;
+    font-family: Lato;
+    font-size: 20px;
+}
+
+.game-score-table,
+td,
+th {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 15px;
+    width: 650px;
 }
