@@ -23,7 +23,7 @@ body {
     margin: 0 auto;
 }
 
-.game-greeting-and-player-profile-page {
+.game-player-profile-page {
     display: block;
     background-color: rgba(174, 174, 174, 0.5);
     opacity: 2;
@@ -32,17 +32,17 @@ body {
     padding: 40px 0 15px 0;
 }
 
-.game-greeting {
+.player-profile-greeting {
     text-align: center;
 }
 
-.game-greeting-heading {
+.player-profile-greeting-heading {
     font-family: Gamja Flower;
     color: #fff;
     font-size: 60px;
 }
 
-.game-greeting-paragraph {
+.player-profile-greeting-paragraph {
     font-family: Gamja Flower;
     font-size: 40px;
     color: #fff;
@@ -299,7 +299,7 @@ body {
     flex-wrap: wrap;
     /* width: 480px; */
     /* width: 960px; */
-    width: 1285px;
+    /* width: 1285px; */
     margin: 0 auto;
 }
 

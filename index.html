@@ -9,27 +9,27 @@
 
 <body>
     <div class="content-wrapper">
-        <div class="game-greeting-and-player-profile-page">
+        <div id="gamePlayerProfilePage" class="game-player-profile-page">
             <div class="wrapper">
-                <div class="game-greeting">
-                    <h2 class="game-greeting-heading">Welcome To The "Memory Game"</h2>
-                    <p class="game-greeting-paragraph">Please enter your information</p>
+                <div class="player-profile-greeting">
+                    <h2 class="player-profile-greeting-heading">Welcome To The "Memory Game"</h2>
+                    <p class="player-profile-greeting-paragraph">Please enter your information</p>
                 </div>
                 <div class="player-profile">
                     <form class="player-profile-form" onsubmit="return false">
                         <div class="player-profile-input-box">
                             <label class="player-profile-label">First Name</label><br />
-                            <input id="greetingFirstName" class="player-profile-input" name="first" type="text" required>
+                            <input id="playerProfileGreetingFirstName" class="player-profile-input" name="first" type="text" required>
                         </div>
                         <div class="player-profile-input-box">
                             <label class="player-profile-label">Last Name</label><br />
-                            <input id="greetingLastName" class="player-profile-input" name="last" type="text" required>
+                            <input id="playerProfileGreetingLastName" class="player-profile-input" name="last" type="text" required>
                         </div>
                         <div class="player-profile-input-box">
                             <label class="player-profile-label">Email</label><br />
                             <input class="player-profile-input" name="email" type="text">
                         </div>
-                        <button class="player-profile-register-button">Register</button>
+                        <button id="playerProfileRegisterButton" class="player-profile-register-button">Register</button>
                     </form>
                 </div>
             </div>
@@ -42,13 +42,13 @@
                 <div class="game-button-box">
                     <button id="gameLevelButton" class="game-level-button">Game Level</button>
                     <ul id="levelButtonContent" class="game-level-button-dropdown-content">
-                        <li>3 x 2</li>
-                        <li>6 x 3</li>
-                        <li>8 x 3</li>
+                        <li id="gameLevel3x2">3 x 2</li>
+                        <li id="gameLevel6x3">6 x 3</li>
+                        <li id="gameLevel8x3">8 x 3</li>
                     </ul>
                 </div>
                 <div class="game-rules">
-                    <h2 class="player-full-name-greeting"></h2>
+                    <h2 id="fullNameGreeting" class="player-full-name-greeting"></h2>
                     <p class="about-game-paragraph">"Memory" is a game for brain training<br /> where the goal is to find the same Cards</p>
                     <h3 class="game-rules-heading">Game Rules:</h3>
                     <ol class="game-rules-ordered-list">
@@ -71,9 +71,9 @@
                     <button id="shirtCardsButton" class="shirt-cards-button">Shirt Cards</button>
                     <!-- <div class="yoda-img"><img src="../Match-Match-Game/images/yoda-img.png"></div> -->
                     <ul id="shirtCardsButtonContent" class="shirt-cards-button-dropdown-content">
-                        <li><img class="shirt-cards-img" src="../Match-Match-Game/images/yoda-img.png"></li>
-                        <li><img class="shirt-cards-img" src="../Match-Match-Game/images/darth-vader-img.png"></li>
-                        <li><img class="shirt-cards-img" src="../Match-Match-Game/images/r2d2-img.png"></li>
+                        <li><img class="shirt-cards-img yoda" src="../Match-Match-Game/images/yoda-img.png"></li>
+                        <li><img class="shirt-cards-img vader" src="../Match-Match-Game/images/darth-vader-img.png"></li>
+                        <li><img class="shirt-cards-img r2d2" src="../Match-Match-Game/images/r2d2-img.png"></li>
                     </ul>
                 </div>
             </div>
@@ -82,242 +82,10 @@
 
 
         <div class="game-page">
-            <div class="game-fild">
-                <div class="flip-container" onclick="this.classList.toggle('active');">
+            <div id="gameFild" class="game-fild">
+                <div id="gameCard" class="flip-container" onclick="this.classList.toggle('active');">
                     <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
-                        <div class="back">
-                            <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
-                        </div>
-                    </div>
-                </div>
-                <div class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
-                        <div class="front">
-                            <img class="card-img" src="../Match-Match-Game/images/r2d2-img.png" width="130px" height="130px">
-                        </div>
+                        <div class="front"></div>
                         <div class="back">
                             <img class="card-img" src="../Match-Match-Game/images/yoda-img.png" width="130px" height="130px">
                         </div>
@@ -331,9 +99,9 @@
                 <div class="game-button-box">
                     <button id="gameLevelButton" class="game-level-button">Game Level</button>
                     <ul id="levelButtonContent" class="game-level-button-dropdown-content">
-                        <li>3 x 2</li>
-                        <li>6 x 3</li>
-                        <li>8 x 3</li>
+                        <li id="gameLevel3x2">3 x 2</li>
+                        <li id="gameLevel6x3">6 x 3</li>
+                        <li id="gameLevel8x3">8 x 3</li>
                     </ul>
                 </div>
                 <div class="game-score">
@@ -349,7 +117,7 @@
                             <td>denis@mail.com</td>
                         </tr>
                     </table>
-                    <button class="new-game-button">New Game</button>
+                    <button id="newGameButton" class="new-game-button">New Game</button>
                 </div>
                 <div class="game-button-box">
                     <button id="shirtCardsButton" class="shirt-cards-button">Shirt Cards</button>
