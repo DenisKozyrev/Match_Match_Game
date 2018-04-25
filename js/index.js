@@ -32,7 +32,6 @@ shirtOptionsButton.addEventListener('click', () => {
 
 // Добовляет нужную рубашку кард при выборе игрока и убирает внутренний блок 
 let gameCardBlock = document.getElementsByClassName('front');
-
 let yodaShirtCard = document.querySelector('.yoda');
 let vaderShirtCard = document.querySelector('.vader');
 let r2d2ShirtCard = document.querySelector('.r2d2');
@@ -51,6 +50,7 @@ yodaShirtCard.addEventListener('click', () => {
 vaderShirtCard.addEventListener('click', () => {
     Array.from(gameCardBlock).forEach(card => {
         card.innerHTML = '<img class = "card-img" src = "../Match-Match-Game/images/darth-vader-img.png" width = "130px" height = "130px" >';
+        card.classList.add('vader-front');
     });
     shirtButtonDropdownContentOff();
 });
@@ -58,6 +58,7 @@ vaderShirtCard.addEventListener('click', () => {
 r2d2ShirtCard.addEventListener('click', () => {
     Array.from(gameCardBlock).forEach(card => {
         card.innerHTML = '<img class = "card-img" src = "../Match-Match-Game/images/r2d2-img.png" width = "130px" height = "130px" >';
+        card.backgroundColor = '#aaa';
     });
     shirtButtonDropdownContentOff();
 });
@@ -80,13 +81,15 @@ let gameLevel6x3 = document.querySelector('#gameLevel6x3');
 let gameLevel8x3 = document.querySelector('#gameLevel8x3');
 let gameFild = document.querySelector('#gameFild');
 let gameCard = document.querySelector('#gameCard');
+let cardImgArr = ['back-card-img-1', 'back-card-img-1', 'back-card-img-2', 'back-card-img-2', 'back-card-img-3', 'back-card-img-3', 'back-card-img-4', 'back-card-img-4', 'back-card-img-5', 'back-card-img-5', 'back-card-img-6', 'back-card-img-6', 'back-card-img-7', 'back-card-img-7', 'back-card-img-8', 'back-card-img-8', 'back-card-img-9', 'back-card-img-9', 'back-card-img-10', 'back-card-img-10', 'back-card-img-11', 'back-card-img-11', 'back-card-img-12', 'back-card-img-12'];
 
 gameLevel3x2.addEventListener('click', () => {
     let cardNumber = 6
     for (let i = 0; i < cardNumber - 1; i++) {
         let gameCard2 = gameCard.cloneNode(true);
-        gameCard.parentNode.insertBefore(gameCard2, gameCard.nextSibling);
+        gameCard.after(gameCard2);
     }
+    cardImgArr.splice(6);
     gameFild.style.width = '480px';
     levelButtonContent.style.display = 'none';
 });
@@ -95,8 +98,9 @@ gameLevel6x3.addEventListener('click', () => {
     let cardNumber = 18
     for (let i = 0; i < cardNumber - 1; i++) {
         let gameCard2 = gameCard.cloneNode(true);
-        gameCard.parentNode.insertBefore(gameCard2, gameCard.nextSibling);
+        gameCard.after(gameCard2);
     }
+    cardImgArr.splice(18);
     gameFild.style.width = '960px';
     levelButtonContent.style.display = 'none';
 });
@@ -105,7 +109,7 @@ gameLevel8x3.addEventListener('click', () => {
     let cardNumber = 24
     for (let i = 0; i < cardNumber - 1; i++) {
         let gameCard2 = gameCard.cloneNode(true);
-        gameCard.parentNode.insertBefore(gameCard2, gameCard.nextSibling);
+        gameCard.after(gameCard2);
     }
     gameFild.style.width = '1285px';
     levelButtonContent.style.display = 'none';
@@ -114,8 +118,20 @@ gameLevel8x3.addEventListener('click', () => {
 //new game button event
 let newGameButton = document.querySelector('#newGameButton');
 let gamePage = document.querySelector('.game-page');
+let gameCardBlockFrontBack = document.getElementsByClassName('back');
+let cardCount = 24;
 
 newGameButton.addEventListener('click', () => {
     gameRulesPage.style.display = 'none';
     gamePage.style.display = 'block';
+    Array.from(gameCardBlockFrontBack).forEach(card => {
+        let i = Math.floor(Math.random() * (cardCount + 1)) + 0;;
+        if (cardImgArr.length > 2 && cardImgArr[i] !== undefined) {
+            card.classList.add(cardImgArr[i]);
+            cardImgArr.splice(i, 1);
+        } else {
+            card.classList.add(cardImgArr[0]);
+            cardImgArr.shift();
+        }
+    })
 });

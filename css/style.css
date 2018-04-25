@@ -353,6 +353,12 @@ body {
     background-color: #aaa;
 }
 
+.vader-front {
+    z-index: 2;
+    transform: rotateY(0deg);
+    background-color: #5e5e5e;
+}
+
 .back {
     transform: rotateY(180deg);
     background-color: #111;
@@ -397,4 +403,58 @@ th {
     text-align: center;
     padding: 15px;
     width: 650px;
+}
+
+.back-card-img-1 {
+    background-image: url(../images/cardbackimg/1.jpg);
+}
+
+.back-card-img-2 {
+    background-image: url(../images/cardbackimg/2.png);
+}
+
+.back-card-img-3 {
+    background-image: url(../images/cardbackimg/3.jpg);
+}
+
+.back-card-img-4 {
+    background-image: url(../images/cardbackimg/4.png);
+}
+
+.back-card-img-5 {
+    background-image: url(../images/cardbackimg/5.png);
+}
+
+.back-card-img-6 {
+    background-image: url(../images/cardbackimg/6.png);
+}
+
+.back-card-img-7 {
+    background-image: url(../images/cardbackimg/7.png);
+}
+
+.back-card-img-8 {
+    background-image: url(../images/cardbackimg/8.jpg);
+}
+
+.back-card-img-9 {
+    background-image: url(../images/cardbackimg/9.png);
+}
+
+.back-card-img-10 {
+    background-image: url(../images/cardbackimg/10.png);
+}
+
+.back-card-img-11 {
+    background-image: url(../images/cardbackimg/11.png);
+}
+
+.back-card-img-12 {
+    background-image: url(../images/cardbackimg/12.png);
+}
+
+.back-position {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: #fff;
 }
