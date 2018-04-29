@@ -9,6 +9,9 @@
 
 <body>
     <div class="content-wrapper">
+        <div id="timer" class="timer">
+            <p class="timer-numbers" id="timerString">0:0:0</p>
+        </div>
         <div id="gamePlayerProfilePage" class="game-player-profile-page">
             <div class="wrapper">
                 <div class="player-profile-greeting">
@@ -69,7 +72,6 @@
                 </div>
                 <div class="game-button-box">
                     <button id="shirtCardsButton" class="shirt-cards-button">Shirt Cards</button>
-                    <!-- <div class="yoda-img"><img src="../Match-Match-Game/images/yoda-img.png"></div> -->
                     <ul id="shirtCardsButtonContent" class="shirt-cards-button-dropdown-content">
                         <li><img class="shirt-cards-img yoda" src="../Match-Match-Game/images/yoda-img.png"></li>
                         <li><img class="shirt-cards-img vader" src="../Match-Match-Game/images/darth-vader-img.png"></li>
@@ -83,10 +85,10 @@
 
         <div class="game-page">
             <div id="gameFild" class="game-fild">
-                <div id="gameCard" class="flip-container" onclick="this.classList.toggle('active');">
-                    <div class="flipper">
+                <div id="gameCard" class="flip-container">
+                    <div id="flipper" class="flipper">
                         <div class="front"></div>
-                        <div class="back back-position"></div>
+                        <div id="back" class="back back-position"></div>
                     </div>
                 </div>
             </div>
@@ -119,7 +121,6 @@
                 </div>
                 <div class="game-button-box">
                     <button id="shirtCardsButton" class="shirt-cards-button">Shirt Cards</button>
-                    <!-- <div class="yoda-img"><img src="../Match-Match-Game/images/yoda-img.png"></div> -->
                     <ul id="shirtCardsButtonContent" class="shirt-cards-button-dropdown-content">
                         <li><img class="shirt-cards-img" src="../Match-Match-Game/images/yoda-img.png"></li>
                         <li><img class="shirt-cards-img" src="../Match-Match-Game/images/darth-vader-img.png"></li>

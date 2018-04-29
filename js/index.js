@@ -75,60 +75,120 @@ gameLevelButton.addEventListener('click', () => {
     levelButtonContent.style.display = 'block';
 });
 
-// генерирует нужное количество кард и убирает внутренний блок level button 
+
+
+
+
+
+
+// функция Перевороты карт и исчезновение 
+let gameCardsClassActiveArr = [];
+let gameCardsClassActiveArrLength = 2;
+let cardImgArr = ['back-card-img-1', 'back-card-img-1', 'back-card-img-2', 'back-card-img-2', 'back-card-img-3', 'back-card-img-3', 'back-card-img-4', 'back-card-img-4', 'back-card-img-5', 'back-card-img-5', 'back-card-img-6', 'back-card-img-6', 'back-card-img-7', 'back-card-img-7', 'back-card-img-8', 'back-card-img-8', 'back-card-img-9', 'back-card-img-9', 'back-card-img-10', 'back-card-img-10', 'back-card-img-11', 'back-card-img-11', 'back-card-img-12', 'back-card-img-12'];
+
+let activeClass = document.getElementsByClassName('active');
+let gameCard = document.querySelector('#gameCard');
+let gameCards = document.getElementsByClassName('flip-container');
+
+function cardMovement() {
+    this.classList.toggle('active');
+    setTimeout(() => {
+        if (!this.classList.contains('active')) {
+            gameCardsClassActiveArr.splice(0);
+        } else {
+            gameCardsClassActiveArr.push(this.children[0].children[1].classList[2]);
+        };
+        for (i = 0; i < gameCardsClassActiveArrLength; i++) {
+            if (gameCardsClassActiveArr.length === 2 && gameCardsClassActiveArr[i] !== gameCardsClassActiveArr[i + 1]) {
+                Array.from(activeClass).forEach((item) => {
+                    item.classList.remove('active');
+                    gameCardsClassActiveArr.splice(0);
+                })
+            } else if (gameCardsClassActiveArr.length === 2 && gameCardsClassActiveArr[i] === gameCardsClassActiveArr[i + 1]) {
+                Array.from(activeClass).forEach((item) => {
+                    item.classList.add('hiddenCard');
+                    gameCardsClassActiveArr.splice(0);
+                })
+            }
+        };
+    }, 1000)
+}
+
+
+// генерирует правила поля и убирает внутренний блок level button 
+let cardNumber = 0;
+let gameFild = document.querySelector('#gameFild');
 let gameLevel3x2 = document.querySelector('#gameLevel3x2');
 let gameLevel6x3 = document.querySelector('#gameLevel6x3');
 let gameLevel8x3 = document.querySelector('#gameLevel8x3');
-let gameFild = document.querySelector('#gameFild');
-let gameCard = document.querySelector('#gameCard');
-let cardImgArr = ['back-card-img-1', 'back-card-img-1', 'back-card-img-2', 'back-card-img-2', 'back-card-img-3', 'back-card-img-3', 'back-card-img-4', 'back-card-img-4', 'back-card-img-5', 'back-card-img-5', 'back-card-img-6', 'back-card-img-6', 'back-card-img-7', 'back-card-img-7', 'back-card-img-8', 'back-card-img-8', 'back-card-img-9', 'back-card-img-9', 'back-card-img-10', 'back-card-img-10', 'back-card-img-11', 'back-card-img-11', 'back-card-img-12', 'back-card-img-12'];
 
 gameLevel3x2.addEventListener('click', () => {
-    let cardNumber = 6
-    for (let i = 0; i < cardNumber - 1; i++) {
-        let gameCard2 = gameCard.cloneNode(true);
-        gameCard.after(gameCard2);
-    }
+    cardNumber = 6
     cardImgArr.splice(6);
     gameFild.style.width = '480px';
+    gameFild.style.padding = '119px 0 120px 0'
     levelButtonContent.style.display = 'none';
 });
 
 gameLevel6x3.addEventListener('click', () => {
-    let cardNumber = 18
-    for (let i = 0; i < cardNumber - 1; i++) {
-        let gameCard2 = gameCard.cloneNode(true);
-        gameCard.after(gameCard2);
-    }
+    cardNumber = 18
     cardImgArr.splice(18);
     gameFild.style.width = '960px';
+    gameFild.style.padding = '15px 0'
     levelButtonContent.style.display = 'none';
 });
 
 gameLevel8x3.addEventListener('click', () => {
-    let cardNumber = 24
-    for (let i = 0; i < cardNumber - 1; i++) {
-        let gameCard2 = gameCard.cloneNode(true);
-        gameCard.after(gameCard2);
-    }
+    cardNumber = 24
     gameFild.style.width = '1285px';
+    gameFild.style.padding = '15px 0'
     levelButtonContent.style.display = 'none';
 });
 
-//new game button event
+
+//timer
+let timerString = document.querySelector('#timerString');
+let timer = document.querySelector('#timer');
+let timerArr = timerString.innerHTML.split(':');
+let seconds = 0;
+
+function startTimer() {
+    seconds++
+    timerArr[2] = seconds % 60;
+    if (seconds === 60) {
+        timerArr[2] = 0;
+        timerArr[1] = +timerArr[1] + 1;
+    }
+    if (timerArr[1] === 60) {
+        timerArr[1] = 0;
+        timerArr[0] = +timerArr[0] + 1;
+    }
+    timerString.innerHTML = timerArr.join(':');
+}
+
+
+//NewGame Button
 let newGameButton = document.querySelector('#newGameButton');
 let gamePage = document.querySelector('.game-page');
 let gameCardBlockFrontBack = document.getElementsByClassName('back');
 let cardCount = 24;
-
 newGameButton.addEventListener('click', () => {
     gameRulesPage.style.display = 'none';
     gamePage.style.display = 'block';
+    gameCard.addEventListener('click', cardMovement);
+    for (let i = 0; i < cardNumber - 1; i++) {
+        let gameCard2 = gameCard.cloneNode(true);
+        gameCard.after(gameCard2);
+        gameCard2.addEventListener('click', cardMovement);
+    }
+    timer.style.display = 'block';
+    setInterval(startTimer, 1000)
     Array.from(gameCardBlockFrontBack).forEach(card => {
-        let i = Math.floor(Math.random() * (cardCount + 1)) + 0;;
+        let i = Math.floor(Math.random() * (cardCount + 1)) + 0;
         if (cardImgArr.length > 2 && cardImgArr[i] !== undefined) {
             card.classList.add(cardImgArr[i]);
             cardImgArr.splice(i, 1);
+
         } else {
             card.classList.add(cardImgArr[0]);
             cardImgArr.shift();

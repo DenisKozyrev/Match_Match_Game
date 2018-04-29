@@ -19,7 +19,7 @@ body {
 }
 
 .wrapper {
-    width: 1200px;
+    width: 1350px;
     margin: 0 auto;
 }
 
@@ -271,39 +271,21 @@ body {
     background-color: #f1f1f1;
 }
 
-
-/* 
-.yoda-img {
-   display: none;
-   position: absolute;
-   margin-left: 73%;
-   margin-top: 50px;
-}
-
-.yoda-img img {
-   width: 130px;
-   height: 130px;
-} */
-
 .game-page {
     display: none;
     background-color: rgba(174, 174, 174, 0.5);
     opacity: 2;
-    margin: 50px auto 0 auto;
+    margin: 0 auto;
     width: 1350px;
-    padding: 15px 0;
 }
 
 .game-fild {
     display: flex;
     flex-wrap: wrap;
-    /* width: 480px; */
-    /* width: 960px; */
-    /* width: 1285px; */
     margin: 0 auto;
 }
 
-.flip-container:active .flipper,
+.flip-container.flipper,
 .flip-container.active .flipper,
 .flip-container.flip .flipper {
     transform: rotateY(180deg);
@@ -365,7 +347,7 @@ body {
 }
 
 .game-score-page {
-    /* display: none; */
+    display: none;
     background-color: rgba(174, 174, 174, 0.5);
     opacity: 2;
     margin: 50px auto 0;
@@ -406,7 +388,7 @@ th {
 }
 
 .back-card-img-1 {
-    background-image: url(../images/cardbackimg/1.jpg);
+    background-image: url(../images/cardbackimg/1.png);
 }
 
 .back-card-img-2 {
@@ -414,7 +396,7 @@ th {
 }
 
 .back-card-img-3 {
-    background-image: url(../images/cardbackimg/3.jpg);
+    background-image: url(../images/cardbackimg/3.png);
 }
 
 .back-card-img-4 {
@@ -434,7 +416,7 @@ th {
 }
 
 .back-card-img-8 {
-    background-image: url(../images/cardbackimg/8.jpg);
+    background-image: url(../images/cardbackimg/8.png);
 }
 
 .back-card-img-9 {
@@ -457,4 +439,22 @@ th {
     background-size: cover;
     background-repeat: no-repeat;
     background-color: #fff;
+}
+
+.timer {
+    display: none;
+    width: 1350px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.timer-numbers {
+    color: #6babff;
+    font-size: 25px;
+    font-weight: bold;
+    padding-top: 21px;
+}
+
+.hiddenCard {
+    visibility: hidden;
 }
