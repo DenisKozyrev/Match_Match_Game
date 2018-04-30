@@ -9,39 +9,37 @@
 
 <body>
     <div class="content-wrapper">
-        <div id="timer" class="timer">
-            <p class="timer-numbers" id="timerString">0:0:0</p>
+        <div id="timer" class="timer-and-full-name">
+            <h2 id="playerFullName" class="player-full-name"></h2>
+            <p class="timer-numbers" id="timerString">00:00:00</p>
         </div>
-        <div id="gamePlayerProfilePage" class="game-player-profile-page">
+        <div id="greetingAndGameRules" class="greeting-and-game-rules-page">
             <div class="wrapper">
-                <div class="player-profile-greeting">
+                <div class="player-greeting">
                     <h2 class="player-profile-greeting-heading">Welcome To The "Memory Game"</h2>
-                    <p class="player-profile-greeting-paragraph">Please enter your information</p>
-                </div>
-                <div class="player-profile">
-                    <form class="player-profile-form" onsubmit="return false">
-                        <div class="player-profile-input-box">
-                            <label class="player-profile-label">First Name</label><br />
-                            <input id="playerProfileGreetingFirstName" class="player-profile-input" name="first" type="text" required>
-                        </div>
-                        <div class="player-profile-input-box">
-                            <label class="player-profile-label">Last Name</label><br />
-                            <input id="playerProfileGreetingLastName" class="player-profile-input" name="last" type="text" required>
-                        </div>
-                        <div class="player-profile-input-box">
-                            <label class="player-profile-label">Email</label><br />
-                            <input class="player-profile-input" name="email" type="text">
-                        </div>
-                        <button id="playerProfileRegisterButton" class="player-profile-register-button">Register</button>
-                    </form>
+                    <p class="about-game-paragraph">"Memory" is a game for brain training<br /> where the goal is to find the same Cards</p>
+                    <h3 class="game-rules-heading">Game Rules:</h3>
+                    <ul class="game-rules-unordered-list">
+                        <li class="game-rules-unordered-list-li">
+                            <p>Flip two cards and try to find the same ones</p>
+                        </li>
+                        <li class="game-rules-unordered-list-li">
+                            <p>If the cards are the same look for the next pair</p>
+                        </li>
+                        <li class="game-rules-unordered-list-li">
+                            <p>If the cards are different they will roll back</p>
+                        </li>
+                        <li class="game-rules-unordered-list-li">
+                            <p>The player who finds all pairs wins</p>
+                        </li>
+                    </ul>
+                    <button id="playerProfileRegisterButton" class="player-profile-register-button">Register</button>
                 </div>
             </div>
         </div>
 
-
-
-        <div class="player-greeting-and-game-rules-page">
-            <div class="player-greeting-and-buttons">
+        <div class="game-player-profile-page">
+            <div class="player-checkin-and-buttons">
                 <div class="game-button-box">
                     <button id="gameLevelButton" class="game-level-button">Game Level</button>
                     <ul id="levelButtonContent" class="game-level-button-dropdown-content">
@@ -50,25 +48,36 @@
                         <li id="gameLevel8x3">8 x 3</li>
                     </ul>
                 </div>
-                <div class="game-rules">
-                    <h2 id="fullNameGreeting" class="player-full-name-greeting"></h2>
-                    <p class="about-game-paragraph">"Memory" is a game for brain training<br /> where the goal is to find the same Cards</p>
-                    <h3 class="game-rules-heading">Game Rules:</h3>
-                    <ol class="game-rules-ordered-list">
-                        <li class="game-rules-ordered-list-li">
-                            <p>Flip two cards and try to find the same ones</p>
-                        </li>
-                        <li class="game-rules-ordered-list-li">
-                            <p>If the cards are the same look for the next pair</p>
-                        </li>
-                        <li class="game-rules-ordered-list-li">
-                            <p>If the cards are different they will roll back</p>
-                        </li>
-                        <li class="game-rules-ordered-list-li">
-                            <p>The player who finds all pairs wins</p>
-                        </li>
-                    </ol>
-                    <button id="newGameButton" class="new-game-button">New Game</button>
+                <table class="game-score-table">
+                    <tr>
+                        <th>Name</th>
+                        <th>Score</th>
+                        <th>Email</th>
+                    </tr>
+                    <tr class="player-score-information">
+                        <td class="player-score-full-name"></td>
+                        <td class="player-score-timer"></td>
+                        <td class="player-score-email"></td>
+                    </tr>
+                </table>
+                <div class="game-player-checkin">
+                    <p class="player-checkin-paragraph">Please enter your information</p>
+                    <div class="player-profile">
+                        <form class="player-profile-form" onsubmit="return false">
+                            <div class="player-profile-input-box">
+                                <label class="player-profile-label">First Name</label><br />
+                                <input id="playerProfileFirstName" class="player-profile-input" name="first" type="text" required>
+                            </div>
+                            <div class="player-profile-input-box">
+                                <label class="player-profile-label">Last Name</label><br />
+                                <input id="playerProfileLastName" class="player-profile-input" name="last" type="text" required>
+                            </div>
+                            <div class="player-profile-input-box">
+                                <label class="player-profile-label">Email</label><br />
+                                <input id="playerProfileEmail" class="player-profile-input" name="email" type="text">
+                            </div>
+                        </form>
+                    </div>
                 </div>
                 <div class="game-button-box">
                     <button id="shirtCardsButton" class="shirt-cards-button">Shirt Cards</button>
@@ -79,9 +88,8 @@
                     </ul>
                 </div>
             </div>
+            <button id="newGameButton" class="new-game-button">New Game</button>
         </div>
-
-
 
         <div class="game-page">
             <div id="gameFild" class="game-fild">
@@ -90,42 +98,6 @@
                         <div class="front"></div>
                         <div id="back" class="back back-position"></div>
                     </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="game-score-page">
-            <div class="game-score-and-buttons">
-                <div class="game-button-box">
-                    <button id="gameLevelButton" class="game-level-button">Game Level</button>
-                    <ul id="levelButtonContent" class="game-level-button-dropdown-content">
-                        <li id="gameLevel3x2">3 x 2</li>
-                        <li id="gameLevel6x3">6 x 3</li>
-                        <li id="gameLevel8x3">8 x 3</li>
-                    </ul>
-                </div>
-                <div class="game-score">
-                    <table class="game-score-table">
-                        <tr>
-                            <th>Name</th>
-                            <th>Score</th>
-                            <th>Email</th>
-                        </tr>
-                        <tr>
-                            <td>Denis Kozyrev</td>
-                            <td>50</td>
-                            <td>denis@mail.com</td>
-                        </tr>
-                    </table>
-                    <button id="newGameButton" class="new-game-button">New Game</button>
-                </div>
-                <div class="game-button-box">
-                    <button id="shirtCardsButton" class="shirt-cards-button">Shirt Cards</button>
-                    <ul id="shirtCardsButtonContent" class="shirt-cards-button-dropdown-content">
-                        <li><img class="shirt-cards-img" src="../Match-Match-Game/images/yoda-img.png"></li>
-                        <li><img class="shirt-cards-img" src="../Match-Match-Game/images/darth-vader-img.png"></li>
-                        <li><img class="shirt-cards-img" src="../Match-Match-Game/images/r2d2-img.png"></li>
-                    </ul>
                 </div>
             </div>
         </div>
