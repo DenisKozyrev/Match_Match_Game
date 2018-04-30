@@ -5,7 +5,8 @@ let gamePlayerCheckin = document.querySelector('.game-player-checkin');
 let greetingFirstNameInput = document.querySelector('#playerProfileFirstName');
 let greetingLastNameInput = document.querySelector('#playerProfileLastName');
 let playerProfileEmail = document.querySelector('#playerProfileEmail');
-let playerFullName = document.querySelector('#playerFullName');
+let playerFullNameDiv = document.querySelector('#playerFullName');
+
 //NewGame Button
 let newGameButton = document.querySelector('#newGameButton');
 let gamePage = document.querySelector('.game-page');
@@ -45,6 +46,7 @@ let gameLevel8x3 = document.querySelector('#gameLevel8x3');
 let timerString = document.querySelector('#timerString');
 let divTimer = document.querySelector('#timer');
 let seconds = 0;
+let startTimer = null;
 
 
 
@@ -111,16 +113,18 @@ gameLevel8x3.addEventListener('click', () => {
     levelButtonContent.classList.toggle('game-dropdown-content-display');
 });
 
+
+
 function cardMovement() {
     this.classList.toggle('active');
+    if (!this.classList.contains('active')) {
+        gameCardsClassActiveArr.splice(0);
+    } else {
+        gameCardsClassActiveArr.push(this.children[0].children[1].classList[2]);
+    };
     setTimeout(() => {
-        if (!this.classList.contains('active')) {
-            gameCardsClassActiveArr.splice(0);
-        } else {
-            gameCardsClassActiveArr.push(this.children[0].children[1].classList[2]);
-        };
         for (i = 0; i < gameCardsClassActiveArrLength; i++) {
-            if (gameCardsClassActiveArr.length === 2 && gameCardsClassActiveArr[i] !== gameCardsClassActiveArr[i + 1]) {
+            if (gameCardsClassActiveArr.length >= 2 && gameCardsClassActiveArr[i] !== gameCardsClassActiveArr[i + 1]) {
                 Array.from(activeClass).forEach((item) => {
                     item.classList.remove('active');
                     gameCardsClassActiveArr.splice(0);
@@ -131,67 +135,89 @@ function cardMovement() {
                     gameCardsClassActiveArr.splice(0);
                 })
                 hiddenCardNumber += 2;
+                if (hiddenCardNumber === gameCardsBlock.length) {
+                    showScorePage();
+                }
             }
         };
-    }, 700)
+    }, 1000)
 };
+
+function gameCardCreate() {
+    let gameCardDiv = document.createElement('div');
+    let gameCardFlipper = document.createElement('div');
+    let frontSideCard = document.createElement('div');
+    let backSideCard = document.createElement('div');
+    let i = Math.round(Math.random() * (cardImgArr.length - 1));
+    gameCardDiv.classList.add('flip-container');
+    gameCardDiv.setAttribute('id', 'gameCard');
+    gameCardFlipper.classList.add('flipper');
+    gameCardFlipper.setAttribute('id', 'flipper');
+    frontSideCard.classList.add('front');
+    backSideCard.classList.add('back');
+    backSideCard.classList.add('back-position');
+    backSideCard.setAttribute('id', 'back');
+    backSideCard.classList.add(cardImgArr[i]);
+    cardImgArr.splice(i, 1);
+    gameFild.appendChild(gameCardDiv);
+    gameCardDiv.appendChild(gameCardFlipper);
+    gameCardFlipper.appendChild(frontSideCard);
+    gameCardFlipper.appendChild(backSideCard);
+    gameCardDiv.addEventListener('click', cardMovement);
+};
+
+
+function showScorePage() {
+    divTimer.style.display = 'none';
+    gamePage.style.display = 'none';
+    gamePlayerProfilePage.style.display = 'block';
+    gamePlayerCheckin.style.display = 'none';
+    gameScoreTable.style.display = 'block';
+    playerScoreFullName.innerHTML = greetingFirstNameInput.value + " " + greetingLastNameInput.value;
+    playerScoreEmail.innerHTML = playerProfileEmail.value;
+    playerScoreTimer.innerHTML = parseTimer();
+
+    localStorage.setItem(playerScoreFullName.innerHTML, playerScoreTimer.innerHTML);
+    toInnitial();
+};
+
+function timer() {
+    seconds++;
+    timerString.innerHTML = parseTimer();
+};
+
+function parseTimer() {
+    let ss = seconds % 60;
+    let mm = Math.floor(seconds / 60) % 60;
+    let hh = Math.floor(seconds / 3600);
+    ss = ss < 10 ? "0" + ss : ss;
+    mm = mm < 10 ? "0" + mm : mm;
+    hh = hh < 10 ? "0" + hh : hh;
+    return hh + ":" + mm + ":" + ss;
+};
+
+function toInnitial() {
+    cardImgArr = ['back-card-img-1', 'back-card-img-1', 'back-card-img-2', 'back-card-img-2', 'back-card-img-3', 'back-card-img-3', 'back-card-img-4', 'back-card-img-4', 'back-card-img-5', 'back-card-img-5', 'back-card-img-6', 'back-card-img-6', 'back-card-img-7', 'back-card-img-7', 'back-card-img-8', 'back-card-img-8', 'back-card-img-9', 'back-card-img-9', 'back-card-img-10', 'back-card-img-10', 'back-card-img-11', 'back-card-img-11', 'back-card-img-12', 'back-card-img-12'];
+    clearInterval(startTimer, 0)
+    startTimer = null;
+    cardNumber = 0;
+    seconds = 0;
+    hiddenCardNumber = 0;
+    gameFild.innerHTML = '';
+}
+
 
 function newGameButtonAddEvent() {
     gamePage.style.display = 'block';
     gamePlayerProfilePage.style.display = 'none';
     gameScoreTable.style.display = 'none';
-
-    playerFullName.innerHTML = greetingFirstNameInput.value + " " + greetingLastNameInput.value;
-
-
-    gameCard.addEventListener('click', cardMovement);
-
-    for (let i = 0; i < cardNumber - 1; i++) {
-        let gameCard2 = gameCard.cloneNode(true);
-        gameCard.after(gameCard2);
-        gameCard2.addEventListener('click', cardMovement);
-    }
     divTimer.style.display = 'flex';
-    Array.from(gameCardBlockFrontBack).forEach(card => {
-        let i = Math.round(Math.random() * (cardImgArr.length - 1));
-        card.classList.add(cardImgArr[i]);
-        cardImgArr.splice(i, 1);
-    })
+    playerFullNameDiv.innerHTML = greetingFirstNameInput.value + " " + greetingLastNameInput.value;
 
-    function showScorePage() {
-        divTimer.style.display = 'none';
-        gamePage.style.display = 'none';
-        gamePlayerProfilePage.style.display = 'block';
-        gamePlayerCheckin.style.display = 'none';
-        gameScoreTable.style.display = 'block';
-        playerScoreFullName.innerHTML = greetingFirstNameInput.value + " " + greetingLastNameInput.value;
-        playerScoreEmail.innerHTML = playerProfileEmail.value;
-        playerScoreTimer.innerHTML = parseTimer();
-        clearInterval(startTimer, 0)
-        hiddenCardNumber = 0;
-        // Array.from(gameCardsBlock).forEach((item) => {
-        //     item.remove()
-        // });
-    };
-
-    function timer() {
-        seconds++;
-        timerString.innerHTML = parseTimer();
-        if (hiddenCardNumber === gameCardsBlock.length) {
-            showScorePage();
-        }
-    };
-
-    function parseTimer() {
-        let ss = seconds % 60;
-        let mm = Math.floor(seconds / 60) % 60;
-        let hh = Math.floor(seconds / 3600);
-        ss = ss < 10 ? "0" + ss : ss;
-        mm = mm < 10 ? "0" + mm : mm;
-        hh = hh < 10 ? "0" + hh : hh;
-        return hh + ":" + mm + ":" + ss;
-    };
-    let startTimer = setInterval(timer, 1000);
+    for (let i = 0; i < cardNumber; i++) {
+        gameCardCreate();
+    }
+    startTimer = setInterval(timer, 1000);
 };
 
 newGameButton.addEventListener('click', newGameButtonAddEvent);

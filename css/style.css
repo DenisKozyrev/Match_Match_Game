@@ -322,7 +322,7 @@ body {
 .flip-container {
     perspective: 1000px;
     margin: 5px;
-    transition: 1s linear;
+    transition: 0.5s linear;
 }
 
 .flip-container.flipper,
