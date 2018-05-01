@@ -10,6 +10,7 @@ let playerFullNameDiv = document.querySelector('#playerFullName');
 //NewGame Button
 let newGameButton = document.querySelector('#newGameButton');
 let gamePage = document.querySelector('.game-page');
+let gameScorePage = document.querySelector('.game-score-page');
 let gameScoreTable = document.querySelector('.game-score-table');
 let hiddenCardNumber = 0;
 let playerProfileRegisterButton = document.querySelector('#playerProfileRegisterButton');
@@ -35,6 +36,7 @@ let gameCard = document.querySelector('#gameCard');
 let gameCardsBlock = document.getElementsByClassName('flip-container')
     // генерирует правила поля и убирает внутренний блок level button 
 let cardNumber = 0;
+let shirtCardNumber = "";
 let gameFild = document.querySelector('#gameFild');
 let gameLevel3x2 = document.querySelector('#gameLevel3x2');
 let gameLevel6x3 = document.querySelector('#gameLevel6x3');
@@ -44,6 +46,8 @@ let timerString = document.querySelector('#timerString');
 let divTimer = document.querySelector('#timer');
 let seconds = 0;
 let startTimer = null;
+let gamePlayerProfileForm = document.querySelector('#gamePlayerProfileForm');
+
 
 
 
@@ -62,23 +66,17 @@ function shirtButtonDropdownContentOff() {
 }
 
 yodaShirtCard.addEventListener('click', () => {
-    Array.from(gameCardBlock).forEach(card => {
-        card.innerHTML = '<img class = "card-img" src = "../Match-Match-Game/images/yoda-img.png" width = "130px" height = "130px" >';
-    });
+    shirtCardNumber = '<img class = "card-img" src = "../Match-Match-Game/images/yoda-img.png" width = "130px" height = "130px" >';
     shirtButtonDropdownContentOff();
 });
 
 vaderShirtCard.addEventListener('click', () => {
-    Array.from(gameCardBlock).forEach(card => {
-        card.innerHTML = '<img class = "card-img" src = "../Match-Match-Game/images/darth-vader-img.png" width = "130px" height = "130px" >';
-    });
+    shirtCardNumber = '<img class = "card-img" src = "../Match-Match-Game/images/darth-vader-img.png" width = "130px" height = "130px" >';
     shirtButtonDropdownContentOff();
 });
 
 r2d2ShirtCard.addEventListener('click', () => {
-    Array.from(gameCardBlock).forEach(card => {
-        card.innerHTML = '<img class = "card-img" src = "../Match-Match-Game/images/r2d2-img.png" width = "130px" height = "130px" >';
-    });
+    shirtCardNumber = '<img class = "card-img" src = "../Match-Match-Game/images/r2d2-img.png" width = "130px" height = "130px" >';
     shirtButtonDropdownContentOff();
 });
 
@@ -151,6 +149,7 @@ function gameCardCreate() {
     gameCardFlipper.classList.add('flipper');
     gameCardFlipper.setAttribute('id', 'flipper');
     frontSideCard.classList.add('front');
+    frontSideCard.innerHTML = shirtCardNumber;
     backSideCard.classList.add('back');
     backSideCard.classList.add('back-position');
     backSideCard.setAttribute('id', 'back');
@@ -164,90 +163,47 @@ function gameCardCreate() {
 };
 
 
-function tablePlayerDataRowCreate() {
-    let playerScoreInfoRow = document.createElement('tr');
-    let playerScoreFullName = document.createElement('td');
-    let playerScoreTimer = document.createElement('td');
-    playerScoreInfoRow.classList.add('player-score-information');
-    playerScoreFullName.classList.add('player-score-full-name');
-    playerScoreTimer.classList.add('player-score-timer');
-    gameScoreTable.appendChild(playerScoreInfoRow);
-    playerScoreInfoRow.appendChild(playerScoreFullName);
-    playerScoreInfoRow.appendChild(playerScoreTimer);
-    playerScoreFullName.innerHTML = greetingFirstNameInput.value + " " + greetingLastNameInput.value;
-    playerScoreTimer.innerHTML = parseTimer();
-};
-
-
-let localObjectArr = Object.entries(localStorage);
-
 function tableRowAdd() {
-    // let playerScoreInfoRow = document.createElement('tr');
-    // let playerScoreFullName = document.createElement('td');
-    // let playerScoreTimer = document.createElement('td');
-    // playerScoreInfoRow.classList.add('player-score-information');
-    // playerScoreFullName.classList.add('player-score-full-name');
-    // playerScoreTimer.classList.add('player-score-timer');
-    // gameScoreTable.appendChild(playerScoreInfoRow);
-    // playerScoreInfoRow.appendChild(playerScoreFullName);
-    // playerScoreInfoRow.appendChild(playerScoreTimer);
+    gameScoreTable.children[1].remove();
+    let localObjectArr = Object.entries(localStorage).sort((a, b) => a[1] - b[1]);
+    for (i = 0; i < 10; i++) {
+        let playerScoreInfoRow = document.createElement('tr');
+        let playerScoreFullName = document.createElement('td');
+        let playerScoreTimer = document.createElement('td');
+        playerScoreInfoRow.classList.add('player-score-information');
+        playerScoreFullName.classList.add('player-score-full-name');
+        playerScoreTimer.classList.add('player-score-timer');
+        gameScoreTable.appendChild(playerScoreInfoRow);
+        playerScoreInfoRow.appendChild(playerScoreFullName);
+        playerScoreInfoRow.appendChild(playerScoreTimer);
+        playerScoreFullName.innerHTML = localObjectArr[i][0];
+        playerScoreTimer.innerHTML = parseTimer(localObjectArr[i][1]);
+    }
 }
-
-
-
 
 function showScorePage() {
     divTimer.style.display = 'none';
     gamePage.style.display = 'none';
     gamePlayerProfilePage.style.display = 'block';
     gamePlayerCheckin.style.display = 'none';
-    gameScoreTable.style.display = 'block';
+    gameScorePage.style.display = 'block';
     if (localStorage.hasOwnProperty(greetingFirstNameInput.value + " " + greetingLastNameInput.value)) {
-        if (parseTimer() <= localStorage[greetingFirstNameInput.value + " " + greetingLastNameInput.value]) {
-            localStorage.removeItem(greetingFirstNameInput.value + " " + greetingLastNameInput.value);
-            localStorage.setItem(greetingFirstNameInput.value + " " + greetingLastNameInput.value, parseTimer());
-            localObjectArr = localObjectArr.filter(item => item[0].substr(0, 7) === "player ");
-            localObjectArr.forEach(item => {
-                let playerScoreInfoRow = document.createElement('tr');
-                let playerScoreFullName = document.createElement('td');
-                let playerScoreTimer = document.createElement('td');
-                playerScoreInfoRow.classList.add('player-score-information');
-                playerScoreFullName.classList.add('player-score-full-name');
-                playerScoreTimer.classList.add('player-score-timer');
-                gameScoreTable.appendChild(playerScoreInfoRow);
-                playerScoreInfoRow.appendChild(playerScoreFullName);
-                playerScoreInfoRow.appendChild(playerScoreTimer);
-                playerScoreFullName.innerHTML = item[0].substr(7);
-                playerScoreTimer.innerHTML = item[1];
-            })
+        if (seconds <= localStorage[greetingFirstNameInput.value + " " + greetingLastNameInput.value]) {
+            localStorage.setItem(greetingFirstNameInput.value + " " + greetingLastNameInput.value, seconds);
         };
     } else {
-        localStorage.setItem('player' + ' ' + greetingFirstNameInput.value + ' ' + greetingLastNameInput.value, parseTimer());
-        localObjectArr = localObjectArr.filter(item => item[0].substr(0, 7) === "player ");
-        localObjectArr.forEach(item => {
-            let playerScoreInfoRow = document.createElement('tr');
-            let playerScoreFullName = document.createElement('td');
-            let playerScoreTimer = document.createElement('td');
-            playerScoreInfoRow.classList.add('player-score-information');
-            playerScoreFullName.classList.add('player-score-full-name');
-            playerScoreTimer.classList.add('player-score-timer');
-            gameScoreTable.appendChild(playerScoreInfoRow);
-            playerScoreInfoRow.appendChild(playerScoreFullName);
-            playerScoreInfoRow.appendChild(playerScoreTimer);
-            playerScoreFullName.innerHTML = item[0].substr(7);
-            playerScoreTimer.innerHTML = item[1];
-        })
+        localStorage.setItem(greetingFirstNameInput.value + ' ' + greetingLastNameInput.value, seconds);
     };
-
     toInnitial();
+    tableRowAdd();
 };
 
 function timer() {
     seconds++;
-    timerString.innerHTML = parseTimer();
+    timerString.innerHTML = parseTimer(seconds);
 };
 
-function parseTimer() {
+function parseTimer(seconds) {
     let ss = seconds % 60;
     let mm = Math.floor(seconds / 60) % 60;
     let hh = Math.floor(seconds / 3600);
@@ -259,19 +215,20 @@ function parseTimer() {
 
 function toInnitial() {
     cardImgArr = ['back-card-img-1', 'back-card-img-1', 'back-card-img-2', 'back-card-img-2', 'back-card-img-3', 'back-card-img-3', 'back-card-img-4', 'back-card-img-4', 'back-card-img-5', 'back-card-img-5', 'back-card-img-6', 'back-card-img-6', 'back-card-img-7', 'back-card-img-7', 'back-card-img-8', 'back-card-img-8', 'back-card-img-9', 'back-card-img-9', 'back-card-img-10', 'back-card-img-10', 'back-card-img-11', 'back-card-img-11', 'back-card-img-12', 'back-card-img-12'];
-    clearInterval(startTimer, 0)
+    clearInterval(startTimer, 0);
     startTimer = null;
-    cardNumber = 0;
     seconds = 0;
+    cardNumber = 0;
     hiddenCardNumber = 0;
-    gameFild.innerHTML = '';
+    shirtCardNumber = "";
+    gameFild.innerHTML = "";
 }
 
 
-function newGameButtonAddEvent() {
+function newGameCreate() {
     gamePage.style.display = 'block';
     gamePlayerProfilePage.style.display = 'none';
-    gameScoreTable.style.display = 'none';
+    gameScorePage.style.display = 'none';
     divTimer.style.display = 'flex';
     playerFullNameDiv.innerHTML = greetingFirstNameInput.value + " " + greetingLastNameInput.value;
     for (let i = 0; i < cardNumber; i++) {
@@ -280,4 +237,12 @@ function newGameButtonAddEvent() {
     startTimer = setInterval(timer, 1000);
 };
 
-newGameButton.addEventListener('click', newGameButtonAddEvent);
+
+
+function gameProfileFormValidation() {
+    if (greetingFirstNameInput.value !== "" && greetingLastNameInput.value !== "" && cardNumber !== 0 && shirtCardNumber !== "") {
+        newGameCreate();
+    };
+};
+
+newGameButton.addEventListener('click', gameProfileFormValidation);

@@ -428,13 +428,16 @@ body {
     background-color: #525252;
 }
 
+.player-congratulations-paragraph {
+    font-family: Gamja Flower;
+    font-size: 40px;
+    color: #fff;
+    margin-top: 20px;
+    text-align: center;
+}
+
 .game-score-page {
     display: none;
-    background-color: rgba(174, 174, 174, 0.5);
-    opacity: 2;
-    margin: 50px auto 0;
-    width: 1350px;
-    padding: 50px;
 }
 
 .game-score-and-buttons {
@@ -446,7 +449,6 @@ body {
 
 .game-score-table {
     border-collapse: collapse;
-    display: none;
 }
 
 .game-score-table th {
@@ -468,6 +470,6 @@ td,
 th {
     border: 1px solid #ddd;
     text-align: center;
-    margin: 100px 0;
+    margin: 30px 0;
     width: 650px;
 }

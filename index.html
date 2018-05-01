@@ -39,50 +39,55 @@
         </div>
 
         <div class="game-player-profile-page">
-            <div class="player-checkin-and-buttons">
-                <div class="game-button-box">
-                    <button id="gameLevelButton" class="game-level-button">Game Level</button>
-                    <ul id="levelButtonContent" class="game-level-button-dropdown-content">
-                        <li id="gameLevel3x2">3 x 2</li>
-                        <li id="gameLevel6x3">6 x 3</li>
-                        <li id="gameLevel8x3">8 x 3</li>
-                    </ul>
-                </div>
-                <table class="game-score-table">
-                    <tr>
-                        <th>Name</th>
-                        <th>Score</th>
-                    </tr>
-                </table>
-                <div class="game-player-checkin">
-                    <p class="player-checkin-paragraph">Please enter your information</p>
-                    <div class="player-profile">
-                        <form class="player-profile-form" onsubmit="return false">
-                            <div class="player-profile-input-box">
-                                <label class="player-profile-label">First Name</label><br />
-                                <input id="playerProfileFirstName" class="player-profile-input" name="first" type="text" required>
+            <form id="gamePlayerProfileForm" onsubmit="return false">
+                <div class="player-checkin-and-buttons">
+                    <div class="game-button-box">
+                        <button id="gameLevelButton" class="game-level-button">Game Level</button>
+                        <ul id="levelButtonContent" class="game-level-button-dropdown-content">
+                            <li id="gameLevel3x2">3 x 2</li>
+                            <li id="gameLevel6x3">6 x 3</li>
+                            <li id="gameLevel8x3">8 x 3</li>
+                        </ul>
+                    </div>
+                    <div class="game-score-page">
+                        <h3 class="player-congratulations-paragraph">Congratulations!!!</h3>
+                        <table class="game-score-table">
+                            <tr>
+                                <th>Name</th>
+                                <th>Score</th>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="game-player-checkin">
+                        <p class="player-checkin-paragraph">Please enter your information</p>
+                        <div class="player-profile">
+                            <div class="player-profile-form">
+                                <div class="player-profile-input-box">
+                                    <label class="player-profile-label">First Name</label><br />
+                                    <input id="playerProfileFirstName" class="player-profile-input" name="first" type="text" required>
+                                </div>
+                                <div class="player-profile-input-box">
+                                    <label class="player-profile-label">Last Name</label><br />
+                                    <input id="playerProfileLastName" class="player-profile-input" name="last" type="text" required>
+                                </div>
+                                <div class="player-profile-input-box">
+                                    <label class="player-profile-label">Email</label><br />
+                                    <input id="playerProfileEmail" class="player-profile-input" name="email" type="text" required>
+                                </div>
                             </div>
-                            <div class="player-profile-input-box">
-                                <label class="player-profile-label">Last Name</label><br />
-                                <input id="playerProfileLastName" class="player-profile-input" name="last" type="text" required>
-                            </div>
-                            <div class="player-profile-input-box">
-                                <label class="player-profile-label">Email</label><br />
-                                <input id="playerProfileEmail" class="player-profile-input" name="email" type="text">
-                            </div>
-                        </form>
+                        </div>
+                    </div>
+                    <div class="game-button-box">
+                        <button id="shirtCardsButton" class="shirt-cards-button">Shirt Cards</button>
+                        <ul id="shirtCardsButtonContent" class="shirt-cards-button-dropdown-content">
+                            <li><img class="shirt-cards-img yoda" src="../Match-Match-Game/images/yoda-img.png"></li>
+                            <li><img class="shirt-cards-img vader" src="../Match-Match-Game/images/darth-vader-img.png"></li>
+                            <li><img class="shirt-cards-img r2d2" src="../Match-Match-Game/images/r2d2-img.png"></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="game-button-box">
-                    <button id="shirtCardsButton" class="shirt-cards-button">Shirt Cards</button>
-                    <ul id="shirtCardsButtonContent" class="shirt-cards-button-dropdown-content">
-                        <li><img class="shirt-cards-img yoda" src="../Match-Match-Game/images/yoda-img.png"></li>
-                        <li><img class="shirt-cards-img vader" src="../Match-Match-Game/images/darth-vader-img.png"></li>
-                        <li><img class="shirt-cards-img r2d2" src="../Match-Match-Game/images/r2d2-img.png"></li>
-                    </ul>
-                </div>
-            </div>
-            <button id="newGameButton" class="new-game-button">New Game</button>
+                <button type="submit" id="newGameButton" class="new-game-button">New Game</button>
+            </form>
         </div>
 
         <div class="game-page">
