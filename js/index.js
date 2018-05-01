@@ -12,9 +12,6 @@ let newGameButton = document.querySelector('#newGameButton');
 let gamePage = document.querySelector('.game-page');
 let gameScoreTable = document.querySelector('.game-score-table');
 let hiddenCardNumber = 0;
-let playerScoreFullName = document.querySelector('.player-score-full-name');
-let playerScoreEmail = document.querySelector('.player-score-email');
-let playerScoreTimer = document.querySelector('.player-score-timer');
 let playerProfileRegisterButton = document.querySelector('#playerProfileRegisterButton');
 // shirt Button options
 let shirtOptionsButton = document.querySelector('#shirtCardsButton');
@@ -140,7 +137,7 @@ function cardMovement() {
                 }
             }
         };
-    }, 1000)
+    }, 700)
 };
 
 function gameCardCreate() {
@@ -167,17 +164,81 @@ function gameCardCreate() {
 };
 
 
+function tablePlayerDataRowCreate() {
+    let playerScoreInfoRow = document.createElement('tr');
+    let playerScoreFullName = document.createElement('td');
+    let playerScoreTimer = document.createElement('td');
+    playerScoreInfoRow.classList.add('player-score-information');
+    playerScoreFullName.classList.add('player-score-full-name');
+    playerScoreTimer.classList.add('player-score-timer');
+    gameScoreTable.appendChild(playerScoreInfoRow);
+    playerScoreInfoRow.appendChild(playerScoreFullName);
+    playerScoreInfoRow.appendChild(playerScoreTimer);
+    playerScoreFullName.innerHTML = greetingFirstNameInput.value + " " + greetingLastNameInput.value;
+    playerScoreTimer.innerHTML = parseTimer();
+};
+
+
+let localObjectArr = Object.entries(localStorage);
+
+function tableRowAdd() {
+    // let playerScoreInfoRow = document.createElement('tr');
+    // let playerScoreFullName = document.createElement('td');
+    // let playerScoreTimer = document.createElement('td');
+    // playerScoreInfoRow.classList.add('player-score-information');
+    // playerScoreFullName.classList.add('player-score-full-name');
+    // playerScoreTimer.classList.add('player-score-timer');
+    // gameScoreTable.appendChild(playerScoreInfoRow);
+    // playerScoreInfoRow.appendChild(playerScoreFullName);
+    // playerScoreInfoRow.appendChild(playerScoreTimer);
+}
+
+
+
+
 function showScorePage() {
     divTimer.style.display = 'none';
     gamePage.style.display = 'none';
     gamePlayerProfilePage.style.display = 'block';
     gamePlayerCheckin.style.display = 'none';
     gameScoreTable.style.display = 'block';
-    playerScoreFullName.innerHTML = greetingFirstNameInput.value + " " + greetingLastNameInput.value;
-    playerScoreEmail.innerHTML = playerProfileEmail.value;
-    playerScoreTimer.innerHTML = parseTimer();
+    if (localStorage.hasOwnProperty(greetingFirstNameInput.value + " " + greetingLastNameInput.value)) {
+        if (parseTimer() <= localStorage[greetingFirstNameInput.value + " " + greetingLastNameInput.value]) {
+            localStorage.removeItem(greetingFirstNameInput.value + " " + greetingLastNameInput.value);
+            localStorage.setItem(greetingFirstNameInput.value + " " + greetingLastNameInput.value, parseTimer());
+            localObjectArr = localObjectArr.filter(item => item[0].substr(0, 7) === "player ");
+            localObjectArr.forEach(item => {
+                let playerScoreInfoRow = document.createElement('tr');
+                let playerScoreFullName = document.createElement('td');
+                let playerScoreTimer = document.createElement('td');
+                playerScoreInfoRow.classList.add('player-score-information');
+                playerScoreFullName.classList.add('player-score-full-name');
+                playerScoreTimer.classList.add('player-score-timer');
+                gameScoreTable.appendChild(playerScoreInfoRow);
+                playerScoreInfoRow.appendChild(playerScoreFullName);
+                playerScoreInfoRow.appendChild(playerScoreTimer);
+                playerScoreFullName.innerHTML = item[0].substr(7);
+                playerScoreTimer.innerHTML = item[1];
+            })
+        };
+    } else {
+        localStorage.setItem('player' + ' ' + greetingFirstNameInput.value + ' ' + greetingLastNameInput.value, parseTimer());
+        localObjectArr = localObjectArr.filter(item => item[0].substr(0, 7) === "player ");
+        localObjectArr.forEach(item => {
+            let playerScoreInfoRow = document.createElement('tr');
+            let playerScoreFullName = document.createElement('td');
+            let playerScoreTimer = document.createElement('td');
+            playerScoreInfoRow.classList.add('player-score-information');
+            playerScoreFullName.classList.add('player-score-full-name');
+            playerScoreTimer.classList.add('player-score-timer');
+            gameScoreTable.appendChild(playerScoreInfoRow);
+            playerScoreInfoRow.appendChild(playerScoreFullName);
+            playerScoreInfoRow.appendChild(playerScoreTimer);
+            playerScoreFullName.innerHTML = item[0].substr(7);
+            playerScoreTimer.innerHTML = item[1];
+        })
+    };
 
-    localStorage.setItem(playerScoreFullName.innerHTML, playerScoreTimer.innerHTML);
     toInnitial();
 };
 
@@ -213,7 +274,6 @@ function newGameButtonAddEvent() {
     gameScoreTable.style.display = 'none';
     divTimer.style.display = 'flex';
     playerFullNameDiv.innerHTML = greetingFirstNameInput.value + " " + greetingLastNameInput.value;
-
     for (let i = 0; i < cardNumber; i++) {
         gameCardCreate();
     }

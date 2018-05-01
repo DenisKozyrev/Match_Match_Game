@@ -322,7 +322,7 @@ body {
 .flip-container {
     perspective: 1000px;
     margin: 5px;
-    transition: 0.5s linear;
+    transition: 0.7s linear;
 }
 
 .flip-container.flipper,
@@ -351,7 +351,7 @@ body {
 }
 
 .flipper {
-    transition: 1s;
+    transition: 0.5s;
     transform-style: preserve-3d;
     position: relative;
 }
@@ -428,10 +428,6 @@ body {
     background-color: #525252;
 }
 
-.hiddenCard {
-    visibility: hidden;
-}
-
 .game-score-page {
     display: none;
     background-color: rgba(174, 174, 174, 0.5);
@@ -473,5 +469,5 @@ th {
     border: 1px solid #ddd;
     text-align: center;
     margin: 100px 0;
-    width: 690px;
+    width: 650px;
 }
