@@ -52,6 +52,7 @@ let gamePlayerProfileForm = document.querySelector('#gamePlayerProfileForm');
 
 
 
+
 function getFullName() {
     greetingAndGameRules.style.display = 'none';
     gamePlayerProfilePage.style.display = 'block';
@@ -164,9 +165,12 @@ function gameCardCreate() {
 
 
 function tableRowAdd() {
-    gameScoreTable.children[1].remove();
+    gameScoreTable.innerHTML = "";
     let localObjectArr = Object.entries(localStorage).sort((a, b) => a[1] - b[1]);
-    for (i = 0; i < 10; i++) {
+    if (localObjectArr.length > 10) {
+        localObjectArr.splice(10);
+    }
+    localObjectArr.forEach(player => {
         let playerScoreInfoRow = document.createElement('tr');
         let playerScoreFullName = document.createElement('td');
         let playerScoreTimer = document.createElement('td');
@@ -176,9 +180,9 @@ function tableRowAdd() {
         gameScoreTable.appendChild(playerScoreInfoRow);
         playerScoreInfoRow.appendChild(playerScoreFullName);
         playerScoreInfoRow.appendChild(playerScoreTimer);
-        playerScoreFullName.innerHTML = localObjectArr[i][0];
-        playerScoreTimer.innerHTML = parseTimer(localObjectArr[i][1]);
-    }
+        playerScoreFullName.innerHTML = player[0];
+        playerScoreTimer.innerHTML = parseTimer(player[1]);
+    });
 }
 
 function showScorePage() {

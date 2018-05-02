@@ -454,15 +454,15 @@ body {
 .game-score-table th {
     color: #fff;
     font-family: Gamja Flower;
-    font-size: 40px;
-    padding: 25px;
+    font-size: 35px;
+    padding: 10px;
 }
 
 .game-score-table td {
     color: #fff;
     font-family: Lato;
     font-size: 20px;
-    padding: 25px;
+    padding: 10px;
 }
 
 .game-score-table,
@@ -470,6 +470,6 @@ td,
 th {
     border: 1px solid #ddd;
     text-align: center;
-    margin: 30px 0;
+    margin: 25px 0;
     width: 650px;
 }
