@@ -4,7 +4,7 @@
 <head>
     <title>Match-Match Game</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="../Match-Match-Game/css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 
 <body>
@@ -13,36 +13,32 @@
             <h2 id="playerFullName" class="player-full-name"></h2>
             <p class="timer-numbers" id="timerString">00:00:00</p>
         </div>
-        <div id="greetingAndGameRules" class="greeting-and-game-rules-page">
-            <div class="wrapper">
-                <div class="player-greeting">
-                    <h2 class="player-profile-greeting-heading">Welcome To The "Memory Game"</h2>
-                    <p class="about-game-paragraph">"Memory" is a game for brain training<br /> where the goal is to find the same Cards</p>
-                    <h3 class="game-rules-heading">Game Rules:</h3>
-                    <ul class="game-rules-unordered-list">
-                        <li class="game-rules-unordered-list-li">
-                            <p>Flip two cards and try to find the same ones</p>
-                        </li>
-                        <li class="game-rules-unordered-list-li">
-                            <p>If the cards are the same look for the next pair</p>
-                        </li>
-                        <li class="game-rules-unordered-list-li">
-                            <p>If the cards are different they will roll back</p>
-                        </li>
-                        <li class="game-rules-unordered-list-li">
-                            <p>The player who finds all pairs wins</p>
-                        </li>
-                    </ul>
-                    <button id="playerProfileRegisterButton" class="player-profile-register-button">Register</button>
-                </div>
-            </div>
+        <div id="greetingAndGameRulesPage" class="greeting-and-game-rules-page">
+            <h2 class="player-greeting-heading">Welcome To The "Memory Game"</h2>
+            <p class="about-game-paragraph">"Memory" is a game for brain training
+                <br /> where the goal is to find the same Cards</p>
+            <h3 class="game-rules-heading">Game Rules:</h3>
+            <ul class="game-rules-unordered-list">
+                <li class="game-rules-unordered-list-li">
+                    <p>Flip two cards and try to find the same ones</p>
+                </li>
+                <li class="game-rules-unordered-list-li">
+                    <p>If the cards are the same look for the next pair</p>
+                </li>
+                <li class="game-rules-unordered-list-li">
+                    <p>If the cards are different they will roll back</p>
+                </li>
+                <li class="game-rules-unordered-list-li">
+                    <p>The player who finds all pairs wins</p>
+                </li>
+            </ul>
+            <button id="playerProfileRegisterButton" class="player-profile-register-button">Register</button>
         </div>
-
-        <div class="game-player-profile-page">
-            <form id="gamePlayerProfileForm" onsubmit="return false">
+        <div class="player-profile-page">
+            <form onsubmit="gameProfileFormValidation();return false">
                 <div class="player-checkin-and-buttons">
                     <div class="game-button-box">
-                        <button id="gameLevelButton" class="game-level-button">Game Level</button>
+                        <button type="button" id="gameLevelButton" class="game-level-button">Game Level</button>
                         <ul id="levelButtonContent" class="game-level-button-dropdown-content">
                             <li id="gameLevel3x2">3 x 2</li>
                             <li id="gameLevel6x3">6 x 3</li>
@@ -58,43 +54,51 @@
                             </tr>
                         </table>
                     </div>
-                    <div class="game-player-checkin">
+                    <div id="playerCheckin">
                         <p class="player-checkin-paragraph">Please enter your information</p>
                         <div class="player-profile">
                             <div class="player-profile-form">
                                 <div class="player-profile-input-box">
-                                    <label class="player-profile-label">First Name</label><br />
-                                    <input id="playerProfileFirstName" class="player-profile-input" name="first" type="text" required>
+                                    <label class="player-profile-label">First Name</label>
+                                    <br />
+                                    <input id="playerProfileFirstName" class="player-profile-input" name="first" required>
                                 </div>
                                 <div class="player-profile-input-box">
-                                    <label class="player-profile-label">Last Name</label><br />
-                                    <input id="playerProfileLastName" class="player-profile-input" name="last" type="text" required>
+                                    <label class="player-profile-label">Last Name</label>
+                                    <br />
+                                    <input id="playerProfileLastName" class="player-profile-input" name="last" required>
                                 </div>
                                 <div class="player-profile-input-box">
-                                    <label class="player-profile-label">Email</label><br />
-                                    <input id="playerProfileEmail" class="player-profile-input" name="email" type="text" required>
+                                    <label class="player-profile-label">Email</label>
+                                    <br />
+                                    <input id="playerProfileEmail" class="player-profile-input" name="email" required pattern="^[.a-z0-9_-]+@[а-яА-Яa-z0-9-]+\.[а-яА-Яa-zA-Z]{2,6}$">
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="game-button-box">
-                        <button id="shirtCardsButton" class="shirt-cards-button">Shirt Cards</button>
+                        <button type="button" id="shirtCardsButton" class="shirt-cards-button">Shirt Cards</button>
                         <ul id="shirtCardsButtonContent" class="shirt-cards-button-dropdown-content">
-                            <li><img class="shirt-cards-img yoda" src="../Match-Match-Game/images/yoda-img.png"></li>
-                            <li><img class="shirt-cards-img vader" src="../Match-Match-Game/images/darth-vader-img.png"></li>
-                            <li><img class="shirt-cards-img r2d2" src="../Match-Match-Game/images/r2d2-img.png"></li>
+                            <li>
+                                <img class="shirt-cards-img yoda" src="./images/yoda-img.png">
+                            </li>
+                            <li>
+                                <img class="shirt-cards-img vader" src="./images/darth-vader-img.png">
+                            </li>
+                            <li>
+                                <img class="shirt-cards-img r2d2" src="./images/r2d2-img.png">
+                            </li>
                         </ul>
                     </div>
                 </div>
                 <button type="submit" id="newGameButton" class="new-game-button">New Game</button>
             </form>
         </div>
-
         <div class="game-page">
             <div id="gameFild" class="game-fild"></div>
         </div>
     </div>
-    <script src="../Match-Match-Game/js/index.js"></script>
+    <script src="js/index.js"></script>
 </body>
 
 </html>

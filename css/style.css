@@ -1,16 +1,16 @@
 body {
-    margin: 0 auto;
-    background-image: url(../images/body-background.jpg)
+    background-image: url(../images/body-background.jpg);
+    width: 100vw;
 }
 
 @font-face {
     font-family: "Gamja Flower";
-    src: url(../Match-Match-Game/fonts/GamjaFlower-Regular.ttf);
+    src: url(../fonts/GamjaFlower-Regular.ttf);
 }
 
 @font-face {
     font-family: "Lato";
-    src: url(../Match-Match-Game/fonts/lato);
+    src: url(../fonts/Lato-Regular.ttf);
 }
 
 * {
@@ -18,15 +18,14 @@ body {
     padding: 0;
 }
 
-.wrapper {
-    width: 1350px;
+.content-wrapper {
+    width: 90%;
     margin: 0 auto;
 }
 
 .timer-and-full-name {
     display: none;
     justify-content: space-between;
-    width: 1350px;
     margin: 0 auto;
 }
 
@@ -47,16 +46,12 @@ body {
     display: block;
     background-color: rgba(174, 174, 174, 0.5);
     opacity: 2;
-    margin: 50px auto 0 auto;
-    width: 1350px;
+    margin: 50px auto 0;
     padding: 50px 0;
-}
-
-.player-greeting {
     text-align: center;
 }
 
-.player-profile-greeting-heading {
+.player-greeting-heading {
     font-family: Gamja Flower;
     color: #fff;
     font-size: 60px;
@@ -107,12 +102,11 @@ body {
     transform: translateY(4px);
 }
 
-.game-player-profile-page {
+.player-profile-page {
     display: none;
     background-color: rgba(174, 174, 174, 0.5);
     opacity: 2;
     margin: 50px auto 0;
-    width: 1350px;
     padding: 60px 0;
 }
 
@@ -150,16 +144,16 @@ body {
     display: none;
     position: absolute;
     background-color: #f9f9f9;
-    min-width: 179px;
+    min-width: 177px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
 }
 
-.game-dropdown-content-display {
+.level-card-dropdown-content-display {
     display: block;
 }
 
 .game-level-button-dropdown-content li {
-    padding: 15px 20px;
+    padding: 15px 50px;
     background-color: #616161;
     list-style-type: none;
     color: #87d2ff;
@@ -267,7 +261,7 @@ body {
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.4);
 }
 
-.shirt-cards-display {
+.shirt-cards-dropdown-content-display {
     display: block;
 }
 
@@ -294,7 +288,6 @@ body {
     background-color: rgba(174, 174, 174, 0.5);
     opacity: 2;
     margin: 0 auto;
-    width: 1350px;
 }
 
 .game-fild {
@@ -303,40 +296,24 @@ body {
     margin: 0 auto;
 }
 
-
-/* .game-fild-6 {
-    width: 480px;
-    padding: 109px 0;
-}
-
-.game-fild-18 {
-    width: 960px;
-    padding: 4px 0;
-}
-
-.game-fild-24 {
-    width: 1285px;
-    padding: 4px 0;
-} */
-
-.flip-container {
+.card-box {
     perspective: 1000px;
     margin: 5px;
-    transition: 0.7s linear;
+    transition: 0.5s linear;
 }
 
-.flip-container.flipper,
-.flip-container.active .flipper,
-.flip-container.flip .flipper {
+.card-box.flipper,
+.card-box.active .flipper,
+.card-box.flip .flipper {
     transform: rotateY(180deg);
 }
 
-.flip-container:active .flipper,
-.flip-container.hover .flipper {
+.card-box:active .flipper,
+.card-box.hover .flipper {
     transform: rotateY(180deg);
 }
 
-.flip-container,
+.card-box,
 .front,
 .back {
     width: 150px;
